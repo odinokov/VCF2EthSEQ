@@ -38,7 +38,7 @@ for(i in 1:length(file.names)){
   
   # remove all fields except for GT
 
-  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, ' -o ', output.file ,sep='')
+  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, ' -o ', output.file, sep='')
   system(x)
 
   ## Perform ethnicity analysis using pre-computed reference model
