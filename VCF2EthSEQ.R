@@ -13,7 +13,7 @@ library(EthSEQ)
 data.dir <- file.path(normalizePath(tempdir(), winslash = "/"),'EthSEQ_Data/')
 out.dir <- file.path(normalizePath(tempdir(), winslash = "/"),'EthSEQ_Analysis/')
 
-## Download genotype data in VCF format
+## Copy genotype data in VCF format
 dir.create(data.dir, showWarnings = FALSE)
 dir.create(out.dir, showWarnings = FALSE)
 
