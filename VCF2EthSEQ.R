@@ -36,7 +36,7 @@ for(i in 1:length(file.names)){
   target.file <- file.path(data.dir, target.filename)
   
   # remove all fields except for GT
-  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, sep='')
+  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, sep='') # add -o output.vcf
   system(x)
 
   ## Perform ethnicity analysis using pre-computed reference model
