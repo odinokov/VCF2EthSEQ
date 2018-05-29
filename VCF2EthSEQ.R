@@ -34,14 +34,16 @@ for(i in 1:length(file.names)){
   # copy the files to the new folder
   file.copy(fullpath, data.dir)
   target.file <- file.path(data.dir, target.filename)
+  output.file <- file.path(data.dir, paste('output_', target.filename, sep=''))
   
   # remove all fields except for GT
-  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, sep='') # add -o output.vcf
+
+  x <- paste('bcftools annotate -x INFO,^FORMAT/GT ', target.file, ' -o ', output.file ,sep='')
   system(x)
 
   ## Perform ethnicity analysis using pre-computed reference model
   ethseq.Analysis(
-    target.vcf =  target.file,
+    target.vcf =  output.file,
     out.dir = out.dir,
     model.available = "SS2.Major",
     model.folder = data.dir,
